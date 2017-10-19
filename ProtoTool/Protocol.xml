@@ -1,0 +1,1210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<TypeDefine desc="针对协议中的类型标识">
+		<!--SingleType desc="基础类型定义"-->
+		<Type name="Null" desc="空类型" input="readObject" output="writeObject" bit="1" AS3="null" CSharp="null" CPlusPlus="NULL" Java="null" Type="SingleBaseType"/>
+		<Type name="Undefined" desc="未定义类型" input="readObject" output="writeObject" bit="1" AS3="undefined" CSharp="Undefined" CPlusPlus="" Java="Undefined" Type="SingleBaseType"/>
+		<Type name="Boolean" desc="布尔型" input="readBoolean" output="writeBoolean" bit="1" AS3="Boolean" CSharp="bool" CPlusPlus="bool" Java="boolean" Type="SingleBaseType"/>
+		<Type name="SByte" desc="带符号字节" input="readByte" output="writeByte" bit="8" AS3="int" CSharp="sbyte" CPlusPlus="char" Java="byte" Type="SingleBaseType"/>
+		<Type name="Byte" desc="无符号字节" input="readUnsignedByte" output="writeUnsignedByte" bit="8" AS3="uint" CSharp="byte" CPlusPlus="unsigned char" Java="short" Type="SingleBaseType"/>
+		<Type name="Short" desc="带符号短整型" input="readShort" output="writeShort" bit="16" AS3="int" CSharp="short" CPlusPlus="short" Java="short" Type="SingleBaseType"/>
+		<Type name="UShort" desc="无符号短整型" input="readUnsignedShort" output="writeUnsignedShort" bit="16" AS3="uint" CSharp="ushort" CPlusPlus="" Java="int" Type="SingleBaseType"/>
+		<Type name="U29Int" desc="有符号8-29bit整型" input="readU29Int" output="writeU29Int" bit="NaN" AS3="int" CSharp="int" CPlusPlus="int829" Java="int" Type="SingleBaseType"/>
+		<Type name="Int" desc="带符号整型" input="readInt" output="writeInt" bit="32" AS3="int" CSharp="int" CPlusPlus="int" Java="int" Type="SingleBaseType"/>
+		<Type name="UInt" desc="无符号整型" input="readUnsignedInt" output="writeUnsignedInt" bit="32" AS3="uint" CSharp="uint" CPlusPlus="unsigned int" Java="long" Type="SingleBaseType"/>
+		<Type name="Long" desc="带符号长整型" input="readLong" output="writeLong" bit="64" AS3="Int64" CSharp="long" CPlusPlus="long" Java="long" Type="SingleBaseType"/>
+		<Type name="ULong" desc="无符号长整型" input="readUnsignedLong" output="writeUnsignedLong" bit="64" AS3="UInt64" CSharp="ulong" CPlusPlus="unsigned long long" Java="" Type="SingleBaseType"/>
+		<Type name="Float" desc="单精度浮点型" input="readFloat" output="writeFloat" bit="32" AS3="Number" CSharp="float" CPlusPlus="float" Java="float" Type="SingleBaseType"/>
+		<Type name="Double" desc="双精度浮点型" input="readDouble" output="writeDouble" bit="64" AS3="Number" CSharp="double" CPlusPlus="double" Java="double" Type="SingleBaseType"/>
+		<Type name="String" desc="字符串类型" input="readUTF" output="writeUTF" bit="NaN" AS3="String" CSharp="string" CPlusPlus="string" Java="String" Type="SingleBaseType"/>
+		<Type name="XML" desc="XML类型" input="readObject" output="writeObject" bit="NaN" AS3="xml" CSharp="XmlDocument" CPlusPlus="string" Java="String" Type="SingleBaseType"/>
+		<Type name="Date" desc="时间类型" input="readObject" output="writeObject" bit="64" AS3="Date" CSharp="DateTime" CPlusPlus="string" Java="Date" Type="SingleBaseType"/>
+		<Type name="ByteArray" desc="二进制类型" input="readByteArray" output="writeByteArray" bit="NaN" AS3="ByteArray" CSharp="ByteArray" CPlusPlus="string" Java="ByteBuf" Type="SingleBaseType"/>
+		<Type name="Enum" desc="枚举类型" input="readU29Int" output="writeU29Int" bit="NaN" AS3="int" CSharp="int" CPlusPlus="int829" Java="int" Type="SingleBaseType"/>
+		<!--DataMapContainerDefine desc="针对协议中的字典类型标识"-->
+		<Type name="ASObject" desc="Key为字符串的泛类型" input="readObject" output="writeObject" bit="NaN" AS3="Object" CSharp="ASObject" CPlusPlus="CASObject" Java="Object" Type="DataMapContainerType"/>
+		<Type name="Dictionary" desc="字典类型" input="readObject" output="writeObject" bit="NaN" AS3="Dictionary" CSharp="Dictionary&lt;object, object&gt;" CPlusPlus="map&lt;object, object&gt;" Java="Map&lt;object, object&gt;" Type="DataMapContainerType"/>
+		<!--DataArrayContainerDefine desc="针对协议中的数组类型标识"-->
+		<Type name="Array" desc="泛数组离散类型" input="readObject" output="writeObject" bit="NaN" AS3="Array" CSharp="ArrayList" CPlusPlus="string" Java="ArrayList" Type="DataArrayContainerType"/>
+		<Type name="VectorInt" desc="Int数组紧凑类型" input="readObject" output="writeObject" bit="NaN" AS3="Vector.&lt;int&gt;" CSharp="List&lt;int&gt;" CPlusPlus="vector&lt;int&gt;" Java="List&lt;int&gt;" Type="DataArrayContainerType"/>
+		<Type name="VectorUInt" desc="UInt数紧凑组类型" input="readObject" output="writeObject" bit="NaN" AS3="Vector.&lt;uint&gt;" CSharp="List&lt;uint&gt;" CPlusPlus="vector&lt;unsigned int&gt;" Java="List&lt;uint&gt;" Type="DataArrayContainerType"/>
+		<Type name="VectorDouble" desc="Double数组紧凑类型" input="readObject" output="writeObject" bit="NaN" AS3="Vector.&lt;Number&gt;" CSharp="List&lt;double&gt;" CPlusPlus="vector&lt;double&gt;" Java="List&lt;double&gt;" Type="DataArrayContainerType"/>
+		<Type name="VectorObject" desc="泛数组紧凑类型" input="readObject" output="writeObject" bit="NaN" AS3="Vector.&lt;Object&gt;" CSharp="List&lt;object&gt;" CPlusPlus="vector&lt;CASObject&gt;" Java="List&lt;object&gt;" Type="DataArrayContainerType"/>
+		<Type name="VectorCustomObject" desc="泛数组紧凑类型" input="customDeserializationVector" output="customSerializationVector" bit="NaN" AS3="Vector.&lt;{@ObjectType}&gt;" CSharp="List&lt;{@ObjectType}&gt;" CPlusPlus="vector&lt;CASObject&gt;" Java="List&lt;{@ObjectType}&gt;" Type="DataArrayContainerType"/>
+		<!--Type name="VectorString" desc="字符串数组紧凑类型" input="readObject" output="writeObject" bit="NaN" AS3="Vector.&lt;object&gt;" CSharp="List&lt;string&gt;" CPlusPlus="" Java="" Type="DataArrayContainerType"/-->
+	</TypeDefine>
+
+	<Template>
+    <!-- AS3 -->
+		<TemplateDefine Name="ObjectImportAS3" desc="AS3中的对象引入定义" language="AS3" type="ObjectImportDefine">
+			<![CDATA[
+	import {@ObjectTypePath};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ObjectDefineAS3" desc="AS3中的对象定义" language="AS3" type="ObjectDefine">
+			<![CDATA[
+		// {@ObjectDesc}
+		private var _{@ObjectName} : {@ObjectType};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ObjectGetSetDefineAS3" desc="AS3中的对象GetSet定义" language="AS3" type="ObjectGetSetDefine">
+			<![CDATA[
+		public function get {@ObjectName}():{@ObjectType}
+		{
+			return this._{@ObjectName};
+		}
+			
+		public function set {@ObjectName}(__{@ObjectName} : {@ObjectType}):void
+		{
+			SerializationHelper.getInstance().writeMask(__mask__, {@index});
+			this._{@ObjectName} = __{@ObjectName};
+		}
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="BaseTypeSerializationDefineAS3" desc="AS3中的基础类型对象序列化的定义" language="AS3" type="BaseTypeSerializationDefine">
+			<![CDATA[
+			if(SerializationHelper.getInstance().readMask(this.__mask__, {@index}) == 1)
+				SerializationHelper.getInstance().{@Output}(__targetBytes, this._{@ObjectName});
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="BaseTypeDeserializationDefineAS3" desc="AS3中的基础类型对象反序列化的定义" language="AS3" type="BaseTypeDeserializationDefine">
+			<![CDATA[
+			if(SerializationHelper.getInstance().readMask(this.__mask__, {@index}) == 1)
+				this._{@ObjectName} = SerializationHelper.getInstance().{@Input}(__serializationBytes) as {@ObjectType};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomDeserializationDefineAS3" desc="AS3中的自定义对象反序列化的定义" language="AS3" type="CustomDeserializationDefine">
+			<![CDATA[
+			if(SerializationHelper.getInstance().readMask(this.__mask__, {@index}) == 1)
+				this._{@ObjectName} = SerializationHelper.getInstance().customDeserialization(__serializationBytes, {@ObjectType}) as {@ObjectType};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomSerializationDefineAS3" desc="AS3中的自定义对象序列化的定义" language="AS3" type="CustomSerializationDefine">
+			<![CDATA[
+			if(SerializationHelper.getInstance().readMask(this.__mask__, {@index}) == 1)
+				SerializationHelper.getInstance().customSerialization(__targetBytes, this._{@ObjectName});
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomVectorTypeSerializationDefineAS3" desc="AS3中的自定义数组类型对象序列化的定义" language="AS3" type="CustomVectorTypeSerializationDefine">
+			<![CDATA[
+			if(SerializationHelper.getInstance().readMask(this.__mask__, {@index}) == 1)
+				SerializationHelper.getInstance().{@Output}(__targetBytes, this._{@ObjectName});
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomVectorTypeDeserializationDefineAS3" desc="AS3中的自定义数组类型对象反序列化的定义" language="AS3" type="CustomVectorTypeDeserializationDefine">
+			<![CDATA[
+			if(SerializationHelper.getInstance().readMask(this.__mask__, {@index}) == 1)
+				this._{@ObjectName} = SerializationHelper.getInstance().{@Input}(__serializationBytes, {@ObjectElementType}) as {@ObjectType};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomDeserializationExtendDefineAS3" desc="AS3中的自定义扩展对象反序列化的定义" language="AS3" type="CustomDeserializationDefine">
+			<![CDATA[
+			if(SerializationHelper.getInstance().readMask(this.__mask__, {@index}) == 1)
+				this._{@ObjectName} = SerializationHelper.getInstance().customDeserialization(__serializationBytes, null) as {@ObjectType};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomSerializationExtendDefineAS3" desc="AS3中的自定义对象序列化的定义" language="AS3" type="CustomSerializationDefine">
+			<![CDATA[
+			if(SerializationHelper.getInstance().readMask(this.__mask__, {@index}) == 1)
+				SerializationHelper.getInstance().customSerialization(__targetBytes, this._{@ObjectName}, true);
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumSerializationDefineAS3" desc="AS3中的Enum序列化的定义" language="AS3" type="EnumSerializationDefine">
+			<![CDATA[
+			if(SerializationHelper.getInstance().readMask(this.__mask__, {@index}) == 1)
+				SerializationHelper.getInstance().writeEnum(__targetBytes, this._{@ObjectName}.value);
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumDeserializationDefineAS3" desc="AS3中的Enum反序列化的定义" language="AS3" type="EnumDeserializationDefine">
+			<![CDATA[
+			if(SerializationHelper.getInstance().readMask(this.__mask__, {@index}) == 1)
+				this._{@ObjectName} = SerializationHelper.getInstance().readEnum(__serializationBytes, {@ObjectType}) as {@ObjectType};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumPropertyDefineAS3" desc="AS3中的枚举型变量属性的定义" language="AS3" type="EnumPropertyDefine">
+			<![CDATA[
+		// {@EnumItemDesc}
+		[Enum]
+		public static const {@EnumItemName} : int = {@EnumID};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumAS3" desc="AS3中的枚举型定义" language="AS3" type="Enum">
+			<![CDATA[
+package enum
+{
+	//{@EnumDesc}
+	public class {@EnumName} extends Enum
+	{
+{@EnumItems}
+		public function {@EnumName}()
+		{
+			super();
+		}
+	}
+}
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CommonDataAS3" desc="AS3中的公用自定义类型定义" language="AS3" type="Custom">
+			<![CDATA[
+package commonData
+{
+	import flash.utils.ByteArray;
+	import flash.utils.IDataInput;
+	import flash.utils.IDataOutput;
+	
+	import commonData.*;
+	import enum.*;
+	import navigate.atom.define.ISerializable;	
+	import navigate.helper.serialization.SerializationHelper;
+	import navigate.atom.define.IWeightData;
+
+	//{@commonDataDesc}
+	public class {@commonDataName} implements ISerializable
+	{
+		private var __mask__:ByteArray = new ByteArray();
+		
+{@ProtoPropertyItems}
+		public function {@commonDataName}()
+		{
+		}
+		
+		{@ProtoPropertyItemsGetSet}
+		
+		public function toBytes(__targetBytes:IDataOutput=null):IDataOutput
+		{
+			SerializationHelper.getInstance().writeByteArray(__targetBytes, this.__mask__);
+			
+{@ToBytes}
+			return __targetBytes;
+		}
+
+		public function fromBytes(__serializationBytes : IDataInput, __weight:IWeightData = null):void
+		{
+			this.__mask__ = SerializationHelper.getInstance().readByteArray(__serializationBytes);
+{@FromBytes}
+		}
+	}
+}
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ProtoAS3" desc="AS3中的协议内容定义" language="AS3" type="Proto">
+			<![CDATA[
+package proto
+{
+	import flash.utils.ByteArray;
+	import flash.utils.IDataInput;
+	import flash.utils.IDataOutput;
+	
+	import commonData.*;
+	import enum.*;
+	
+	import navigate.atom.define.IWeightData;
+	import navigate.communication.CommunicationDataBase;
+	import navigate.communication.ICommunication;
+	import navigate.communication.Session;
+	import navigate.event.Issuer;
+	import navigate.helper.serialization.SerializationHelper;
+{@import}
+	//{@ProtoDesc}
+	public class {@ProtoName} extends CommunicationDataBase
+	{	
+		private var __mask__:ByteArray = new ByteArray();
+		public static var isser : Issuer = new Issuer();
+{@ProtoPropertyItems}
+		public function {@ProtoName}()
+		{
+		}
+		
+		public override function getSerializationID():int
+		{
+			return ProtoSerializationDefine.{@ProtoName_ToUpper};
+		}
+
+{@ProtoPropertyItemsGetSet}
+		public override function toBytes(__targetBytes:IDataOutput=null):IDataOutput
+		{
+			SerializationHelper.getInstance().writeByteArray(__targetBytes, this.__mask__);
+{@ToBytes}
+			return __targetBytes;
+		}
+
+		public override function fromBytes(__serializationBytes : IDataInput, __weight:IWeightData = null):void
+		{
+			this.__mask__ = SerializationHelper.getInstance().readByteArray(__serializationBytes);
+{@FromBytes}
+		}
+		
+		override public function fireDataReciveEvent(sender:ICommunication, __session:Session):void
+		{
+			isser.issue("DataRecive", sender, __session, this); 
+		}
+	}
+}
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ProtoSerializationIDDefineAS3" desc="AS3中的协议ID定义" language="AS3" type="ProtoSerializationIDDefine">
+			<![CDATA[
+		public static const {@ProtoName_ToUpper} : int = {@ProtoID};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="AddProtoSerializationIDDefineToMapAS3" desc="AS3中的协议ID索引" language="AS3" type="AddProtoSerializationIDDefineToMap">
+			<![CDATA[
+			this._serializationDefine.addPair({@ProtoName_ToUpper}, {@ProtoName});
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ProtoSerializationDefineAS3" desc="AS3中的协议内容定义" language="AS3" type="ProtoSerializationDefine">
+			<![CDATA[
+package proto
+{
+  import flash.utils.ByteArray;
+	
+	import navigate.communication.CommunicationDataBase;
+	import navigate.communication.ICommunicationDataDefine;
+	import navigate.data.Bimap;
+	// Proto Seriialization Define IDs
+	public class ProtoSerializationDefine implements ICommunicationDataDefine
+	{
+		//Serialization ID Define in Bimap
+		private var _serializationDefine : Bimap;
+{@ProtoSerializationIDDefineAS3}
+		public function ProtoSerializationDefine()
+		{
+			this._serializationDefine = new Bimap();
+			this._serializationDefine.init();
+			
+			{@AddProtoSerializationIDDefineToMapAS3}
+		}
+    
+		public function getCommunicationData(__bytes : ByteArray, __messageID : int):CommunicationDataBase
+		{
+			if(_serializationDefine.containKey(__messageID))
+			{
+				var __type : Class = _serializationDefine.getValue(__messageID);
+				var __data : CommunicationDataBase = new __type as CommunicationDataBase;
+				__data.fromBytes(__bytes);
+				return __data;
+			}
+			return null;
+		}
+		
+		public function dispose():void
+		{
+			this._serializationDefine.dispose();
+			this._serializationDefine = null;
+		}
+	}
+}
+]]>
+		</TemplateDefine>
+
+
+    <!-- CSharp -->
+		<TemplateDefine Name="ObjectImportCSharp" desc="CSharp中的对象引入定义" language="CSharp" type="ObjectImportDefine">
+			<![CDATA[
+using {@ObjectTypePath};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ObjectDefineCSharp" desc="CSharp中的对象定义" language="CSharp" type="ObjectDefine">
+			<![CDATA[
+		// {@ObjectDesc}
+		private {@ObjectType} _{@ObjectName};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ObjectGetSetDefineCSharp" desc="CSharp中的对象GetSet定义" language="CSharp" type="ObjectGetSetDefine">
+			<![CDATA[
+		public {@ObjectType} {@ObjectName}
+		{
+			get
+			{
+				return this._{@ObjectName};
+			}
+			set
+			{
+				this._{@ObjectName} = value;
+			}
+		}
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="BaseTypeSerializationDefineCSharp" desc="CSharp中的基础类型对象序列化的定义" language="CSharp" type="BaseTypeSerializationDefine">
+			<![CDATA[
+			SerializationHelper.getInstance().{@Output}(__targetBytes, this._{@ObjectName});
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="BaseTypeDeserializationDefineCSharp" desc="CSharp中的基础类型对象反序列化的定义" language="CSharp" type="BaseTypeDeserializationDefine">
+			<![CDATA[
+			this._{@ObjectName} = ({@ObjectType})SerializationHelper.getInstance().{@Input}(__serializationBytes);
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomSerializationDefineCSharp" desc="CSharp中的自定义对象序列化的定义" language="CSharp" type="CustomSerializationDefine">
+			<![CDATA[
+			SerializationHelper.getInstance().customSerialization(__targetBytes, this._{@ObjectName});
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomDeserializationDefineCSharp" desc="CSharp中的自定义对象反序列化的定义" language="CSharp" type="CustomDeserializationDefine">
+			<![CDATA[
+			this._{@ObjectName} = ({@ObjectType})SerializationHelper.getInstance().customDeserialization(__serializationBytes, typeof({@ObjectType}));
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomVectorTypeSerializationDefineCSharp" desc="CSharp中的自定义数组类型对象序列化的定义" language="CSharp" type="CustomVectorTypeSerializationDefine">
+			<![CDATA[
+			SerializationHelper.getInstance().{@Output}(__targetBytes, this._{@ObjectName});
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomVectorTypeDeserializationDefineCSharp" desc="CSharp中的自定义数组类型对象反序列化的定义" language="CSharp" type="CustomVectorTypeDeserializationDefine">
+			<![CDATA[
+			this._{@ObjectName} = SerializationHelper.getInstance().{@Input}(__serializationBytes, typeof({@ObjectElementType})) as {@ObjectType};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomSerializationExtendDefineCSharp" desc="CSharp中的自定义扩展对象序列化的定义" language="CSharp" type="CustomSerializationDefine">
+			<![CDATA[
+			SerializationHelper.getInstance().customSerialization(__targetBytes, this._{@ObjectName}, true);
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomDeserializationExtendDefineCSharp" desc="CSharp中的自定义扩展对象反序列化的定义" language="CSharp" type="CustomDeserializationDefine">
+			<![CDATA[
+			this._{@ObjectName} = ({@ObjectType})SerializationHelper.getInstance().customDeserialization(__serializationBytes, null);
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumPropertyDefineCSharp" desc="CSharp中的枚举型变量属性的定义" language="CSharp" type="EnumPropertyDefine">
+			<![CDATA[
+		// {@EnumItemDesc}
+		{@EnumItemName} = {@EnumID},
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumCSharp" desc="CSharp中的枚举型定义" language="CSharp" type="Enum">
+			<![CDATA[
+namespace CommonData
+{
+	//{@EnumDesc}
+	public enum {@EnumName}
+	{
+{@EnumItems}
+	}
+}
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ProtoCSharp" desc="CSharp中的协议内容定义" language="CSharp" type="Proto">
+			<![CDATA[
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml;
+using Utils;
+using Communication;
+using CommonData;
+{@import}
+namespace Proto
+{
+	//Communication Data Recive Event Desegate
+	public delegate void {@ProtoName}_DataReciveEventHandler(ICommunication sender, {@ProtoName}_Data_Event_Args e); 
+	//{@ProtoDesc}
+	public class {@ProtoName} : CommunicationDataBase
+	{
+		//Communication Data Recive Event Handler
+		public static event {@ProtoName}_DataReciveEventHandler communicationDataReciveEvent;
+		
+{@ProtoPropertyItems}
+		public {@ProtoName}()
+		{
+		}
+    
+      public override int getProtoDefineID()
+      {
+        return ProtoSerializationDefine.{@ProtoName_ToUpper};
+      }
+
+{@ProtoPropertyItemsGetSet}
+		public override IDataOutput toBytes(IDataOutput __targetBytes = null)
+		{
+{@ToBytes}
+			return __targetBytes;
+		}
+
+		public override void fromBytes(IDataInput __serializationBytes, IWeightData __weight = null)
+		{
+{@FromBytes}
+		}
+		
+		public override void fireDataReciveEvent(ICommunication __sender, Session __session)
+    {
+		if(communicationDataReciveEvent != null)
+		{
+			communicationDataReciveEvent(__sender, new {@ProtoName}_Data_Event_Args(__session, this));
+		}
+    }
+	}
+	
+	public class {@ProtoName}_Data_Event_Args : CommunicationDataEventArgs
+    {
+        public {@ProtoName}_Data_Event_Args(Session __session, {@ProtoName} __data):base(__session, __data)
+        {
+
+        }
+    }
+}
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ProtoSerializationIDDefineCSharp" desc="CSharp中的协议ID定义" language="CSharp" type="ProtoSerializationIDDefine">
+			<![CDATA[
+		public static readonly int {@ProtoName_ToUpper} = {@ProtoID};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="AddProtoSerializationIDDefineToMapCSharp" desc="CSharp中的协议ID索引" language="CSharp" type="AddProtoSerializationIDDefineToMap">
+			<![CDATA[
+			this._serializationDefine.Add({@ProtoName_ToUpper}, typeof({@ProtoName}));
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ProtoSerializationDefineCSharp" desc="CSharp中的协议内容定义" language="CSharp" type="ProtoSerializationDefine">
+			<![CDATA[
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml;
+using Proto;
+using Communication;
+using Utils;
+
+namespace Proto
+{
+	// Proto Seriialization Define IDs
+	public class ProtoSerializationDefine : ICommunicationDataDefine
+	{
+		//Serialization ID Define in Bimap
+		private Dictionary<int, Type> _serializationDefine;
+
+{@ProtoSerializationIDDefineCSharp}
+		public ProtoSerializationDefine()
+		{
+			this._serializationDefine = new Dictionary<int, Type>();
+			
+			{@AddProtoSerializationIDDefineToMapCSharp}
+		}
+    
+    public CommunicationDataBase getCommunicationData(ByteArray __bytes, int __messageID)
+    {
+        if(_serializationDefine.ContainsKey(__messageID))
+        {
+            Type __type = _serializationDefine[__messageID];
+            CommunicationDataBase __data = (CommunicationDataBase)Activator.CreateInstance(__type);
+            __data.fromBytes(__bytes);
+            return __data;
+        }
+        return null;
+    }
+		
+		public void Dispose()
+		{
+			this._serializationDefine = null;
+		}
+	}
+}
+]]>
+		</TemplateDefine>
+
+
+		<!-- Java -->
+		<TemplateDefine Name="ObjectImportJava" desc="Java中的对象引入定义" language="Java" type="ObjectImportDefine">
+			<![CDATA[
+import {@ObjectTypePath};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ObjectDefineJava" desc="Java中的对象定义" language="Java" type="ObjectDefine">
+	<![CDATA[// {@ObjectDesc}
+	private {@ObjectType} _{@ObjectName};]]>
+		</TemplateDefine>
+    <TemplateDefine Name="PropertyDefineJava" desc="Java中的属性定义" language="Java" type="ObjectDefine">
+    <![CDATA[// {@ObjectDesc}
+	public {@ObjectType} {@ObjectName};]]>
+    </TemplateDefine>
+		<TemplateDefine Name="ObjectGetSetDefineJava" desc="Java中的对象GetSet定义" language="Java" type="ObjectGetSetDefine">
+	<![CDATA[public {@ObjectType} get{@ObjectName}() {
+		return this._{@ObjectName};
+	}
+	public void set{@ObjectName}({@ObjectType} __{@ObjectName}) {
+      SerializationHelper.writeMask(__mask__, {@index});
+		this._{@ObjectName} = __{@ObjectName};
+	}]]>
+		</TemplateDefine>
+		<TemplateDefine Name="BaseTypeSerializationDefineJava" desc="Java中的基础类型对象序列化的定义" language="Java" type="BaseTypeSerializationDefine">
+		<![CDATA[if(SerializationHelper.readMask(this.__mask__, {@index}) == true)
+            SerializationHelper.{@Output}(__targetBytes, this._{@ObjectName});]]>
+		</TemplateDefine>
+		<TemplateDefine Name="BaseTypeDeserializationDefineJava" desc="Java中的基础类型对象反序列化的定义" language="Java" type="BaseTypeDeserializationDefine">
+		<![CDATA[if(SerializationHelper.readMask(this.__mask__, {@index}) == true)
+            this._{@ObjectName} = ({@ObjectType})SerializationHelper.{@Input}(__serializationBytes);]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomSerializationDefineJava" desc="Java中的自定义对象序列化的定义" language="Java" type="CustomSerializationDefine">
+		<![CDATA[if(SerializationHelper.readMask(this.__mask__, {@index}) == true)
+            SerializationHelper.customSerialization(__targetBytes, this._{@ObjectName});]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomDeserializationDefineJava" desc="Java中的自定义对象反序列化的定义" language="Java" type="CustomDeserializationDefine">
+		<![CDATA[if(SerializationHelper.readMask(this.__mask__, {@index}) == true)
+            this._{@ObjectName} = ({@ObjectType})SerializationHelper.customDeserialization(__serializationBytes, {@ObjectType}.class);]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomVectorTypeSerializationDefineJava" desc="Java中的自定义数组类型对象序列化的定义" language="Java" type="CustomVectorTypeSerializationDefine">
+		<![CDATA[if(SerializationHelper.readMask(this.__mask__, {@index}) == true)
+            SerializationHelper.{@Output}(__targetBytes, this._{@ObjectName});]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomVectorTypeDeserializationDefineJava" desc="Java中的自定义数组类型对象反序列化的定义" language="Java" type="CustomVectorTypeDeserializationDefine">
+		<![CDATA[if(SerializationHelper.readMask(this.__mask__, {@index}) == true)
+            this._{@ObjectName} = ({@ObjectType})SerializationHelper.{@Input}(__serializationBytes, {@ObjectElementType}.class);]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomSerializationExtendDefineJava" desc="Java中的自定义扩展对象序列化的定义" language="Java" type="CustomSerializationDefine">
+		<![CDATA[if(SerializationHelper.readMask(this.__mask__, {@index}) == true)
+            SerializationHelper.customSerialization(__targetBytes, this._{@ObjectName}, true);]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomDeserializationExtendDefineJava" desc="Java中的自定义扩展对象反序列化的定义" language="Java" type="CustomDeserializationDefine">
+		<![CDATA[if(SerializationHelper.readMask(this.__mask__, {@index}) == true)
+            this._{@ObjectName} = ({@ObjectType})SerializationHelper.customDeserialization(__serializationBytes, null);]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumPropertyDefineJava" desc="Java中的枚举型变量属性的定义" language="Java" type="EnumPropertyDefine">
+			<![CDATA[
+		// {@EnumItemDesc}
+		{@EnumItemName}({@EnumID}),
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumSerializationDefineJava" desc="Java中的Enum序列化的定义" language="Java" type="EnumSerializationDefine">
+		<![CDATA[if(SerializationHelper.readMask(this.__mask__, {@index}) == true)
+            SerializationHelper.writeU29Int(__targetBytes, this._{@ObjectName}.getValue());]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumDeserializationDefineJava" desc="Java中的Enum反序列化的定义" language="Java" type="EnumDeserializationDefine">
+		<![CDATA[if(SerializationHelper.readMask(this.__mask__, {@index}) == true)
+            this._{@ObjectName} = {@ObjectType}.valueOf(SerializationHelper.readU29Int(__serializationBytes));]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumJava" desc="Java中的枚举型定义" language="Java" type="Enum">
+			<![CDATA[
+// Generated by the SocketProtoGenerationTool.  DO NOT EDIT!
+package com.mokylin.td.clientmsg.enumeration;
+
+//{@EnumDesc}
+public enum {@EnumName}
+{
+{@EnumItems}
+;
+
+	private final int value;
+	
+	{@EnumName}(int value){
+		this.value= value;
+	}
+	
+	public int getValue() {
+		return value;
+	}
+
+	public static {@EnumName} valueOf(int _value) {
+		for ({@EnumName} each : {@EnumName}.values()) {
+			if (each.value == _value) {
+				return each;
+			}
+		}
+		return null;
+	}
+}
+]]>
+		</TemplateDefine>
+    <TemplateDefine Name="CommonDataJava" desc="Java中的公用自定义类型定义" language="Java" type="Custom">
+<![CDATA[// Generated by the SocketProtoGenerationTool.  DO NOT EDIT!
+package com.mokylin.td.clientmsg.commondata;
+
+import io.netty.buffer.ByteBuf;
+import java.util.List;
+import java.io.UnsupportedEncodingException;
+import javax.transaction.NotSupportedException;
+import com.mokylin.bleach.core.collection.BitArray;
+import com.mokylin.td.clientmsg.core.ISerializationDataBase;
+import com.mokylin.td.clientmsg.enumeration.*;
+import com.mokylin.td.clientmsg.core.SerializationHelper;
+	
+//{@commonDataDesc}
+public class {@commonDataName} implements ISerializationDataBase{
+    BitArray __mask__ = new BitArray({@ItemsCount});
+{@ProtoPropertyItems}
+{@ProtoPropertyItemsGetSet}
+	public ByteBuf toBytes(ByteBuf __targetBytes) throws UnsupportedEncodingException, NotSupportedException {
+        SerializationHelper.writeBitArray(__targetBytes, this.__mask__);
+{@ToBytes}
+		return __targetBytes;
+	}
+
+	public void fromBytes(ByteBuf __serializationBytes) throws UnsupportedEncodingException, InstantiationException, IllegalAccessException, NotSupportedException {
+        this.__mask__ = SerializationHelper.readBitArray(__serializationBytes);
+{@FromBytes}
+	}
+}]]>
+    </TemplateDefine>
+		<TemplateDefine Name="ProtoJava" desc="Java中的协议内容定义" language="Java" type="Proto">
+<![CDATA[// Generated by the SocketProtoGenerationTool.  DO NOT EDIT!
+package com.mokylin.td.clientmsg.proto;
+
+import io.netty.buffer.ByteBuf;
+import java.util.List;
+import java.io.UnsupportedEncodingException;
+import javax.transaction.NotSupportedException;
+import com.mokylin.bleach.core.collection.BitArray;
+import com.mokylin.td.clientmsg.enumeration.*;
+import com.mokylin.td.clientmsg.commondata.*;
+import com.mokylin.td.clientmsg.core.ICommunicationDataBase;
+import com.mokylin.td.clientmsg.core.SerializationHelper;
+import com.mokylin.td.clientmsg.ProtoSerializationDefine;
+
+{@import}
+//{@ProtoDesc}
+public class {@ProtoName} implements ICommunicationDataBase{	
+    BitArray __mask__ = new BitArray({@ItemsCount});
+{@ProtoPropertyItems}
+	public {@ProtoName}(){
+	}
+	
+	public int getSerializationID(){
+		return ProtoSerializationDefine.{@ProtoName_ToUpper};
+	}
+
+{@ProtoPropertyItemsGetSet}
+	public ByteBuf toBytes(ByteBuf __targetBytes) throws UnsupportedEncodingException, NotSupportedException {
+        SerializationHelper.writeBitArray(__targetBytes, this.__mask__);
+{@ToBytes}
+		return __targetBytes;
+	}
+
+	public void fromBytes(ByteBuf __serializationBytes) throws UnsupportedEncodingException, InstantiationException, IllegalAccessException, NotSupportedException {
+        this.__mask__ = SerializationHelper.readBitArray(__serializationBytes);
+{@FromBytes}
+	}
+
+}
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ProtoSerializationIDDefineJava" desc="Java中的协议ID定义" language="Java" type="ProtoSerializationIDDefine">
+			<![CDATA[
+	public static final int {@ProtoName_ToUpper} = {@ProtoID};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="AddProtoSerializationIDDefineToMapJava" desc="Java中的协议ID索引" language="Java" type="AddProtoSerializationIDDefineToMap">
+			<![CDATA[
+		this._serializationDefine.put({@ProtoName_ToUpper}, {@ProtoName}.class);
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ProtoSerializationDefineJava" desc="Java中的协议内容定义" language="Java" type="ProtoSerializationDefine">
+			<![CDATA[
+// Generated by the SocketProtoGenerationTool.  DO NOT EDIT!
+package com.mokylin.td.clientmsg;
+
+import io.netty.buffer.ByteBuf;
+import java.util.HashMap;
+import java.util.Map;
+import java.io.UnsupportedEncodingException;
+import javax.transaction.NotSupportedException;
+
+import com.mokylin.td.clientmsg.core.ICommunicationDataBase;
+import com.mokylin.td.clientmsg.core.ICommunicationDataDefine;
+import com.mokylin.td.clientmsg.proto.*;
+
+// Proto Seriialization Define IDs
+public class ProtoSerializationDefine implements ICommunicationDataDefine
+{
+	//Serialization ID Define in HashMap
+	private Map<Integer, Class<?>> _serializationDefine;
+{@ProtoSerializationIDDefineJava}
+	public ProtoSerializationDefine()
+	{
+		this._serializationDefine = new HashMap<>();
+		
+		{@AddProtoSerializationIDDefineToMapJava}
+	}
+   
+	public ICommunicationDataBase getCommunicationData(ByteBuf __bytes, int __messageID)
+    throws InstantiationException, IllegalAccessException, UnsupportedEncodingException, NotSupportedException{
+		if(_serializationDefine.containsKey(__messageID))
+		{
+			Class<?> __type = _serializationDefine.get(__messageID);
+			ICommunicationDataBase __data = (ICommunicationDataBase)__type.newInstance();
+			__data.fromBytes(__bytes);
+			return __data;
+		}
+		return null;
+	}
+}
+]]>
+		</TemplateDefine>
+
+
+		<!-- c++ -->
+		<TemplateDefine Name="ObjectImportCPlusPlus" desc="CPlusPlus中的对象引入定义" language="CPlusPlus" type="ObjectImportDefine">
+			<![CDATA[
+using {@ObjectTypePath};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ObjectDefineCPlusPlus" desc="CPlusPlus中的对象定义" language="CPlusPlus" type="ObjectDefine">
+<![CDATA[
+		// {@ObjectDesc}
+		//private {@ObjectType} _{@ObjectName};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ObjectGetSetDefineCPlusPlus" desc="CPlusPlus中的对象GetSet定义" language="CPlusPlus" type="ObjectGetSetDefine">
+<![CDATA[
+		{@ObjectType} {@ObjectName};
+		/*{
+			get
+			{
+				return this._{@ObjectName};
+			}
+			set
+			{
+				this._{@ObjectName} = value;
+			}
+		}*/
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="BaseTypeSerializationDefineCPlusPlus" desc="CPlusPlus中的基础类型对象序列化的定义" language="CPlusPlus" type="BaseTypeSerializationDefine">
+<![CDATA[
+			//SerializationHelper.getInstance().{@Output}(__targetBytes, this._{@ObjectName});
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="BaseTypeDeserializationDefineCPlusPlus" desc="CPlusPlus中的基础类型对象反序列化的定义" language="CPlusPlus" type="BaseTypeDeserializationDefine">
+<![CDATA[
+			//this._{@ObjectName} = ({@ObjectType})SerializationHelper.getInstance().{@Input}(__serializationBytes);
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomVectorTypeSerializationDefineCPlusPlus" desc="CPlusPlus中的自定义数组类型对象序列化的定义" language="CPlusPlus" type="CustomVectorTypeSerializationDefine">
+			<![CDATA[
+			//SerializationHelper.getInstance().{@Output}(__targetBytes, this._{@ObjectName});
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomVectorTypeDeserializationDefineCPlusPlus" desc="CPlusPlus中的自定义数组类型对象反序列化的定义" language="CPlusPlus" type="CustomVectorTypeDeserializationDefine">
+			<![CDATA[
+			//this._{@ObjectName} = SerializationHelper.getInstance().{@Input}(__serializationBytes, {@ObjectElementType}) as {@ObjectType};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomDeserializationExtendDefineCPlusPlus" desc="CPlusPlus中的自定义扩展对象反序列化的定义" language="CPlusPlus" type="CustomDeserializationDefine">
+			<![CDATA[
+			//this._{@ObjectName} = SerializationHelper.getInstance().customDeserialization(__serializationBytes, null) as {@ObjectType};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomSerializationExtendDefineCPlusPlus" desc="CPlusPlus中的自定义对象序列化的定义" language="CPlusPlus" type="CustomSerializationDefine">
+			<![CDATA[
+			//SerializationHelper.getInstance().customSerialization(__targetBytes, this._{@ObjectName}, true);
+]]>
+		</TemplateDefine>
+
+		<TemplateDefine Name="CustomSerializationDefineCPlusPlus" desc="CPlusPlus中的自定义对象序列化的定义" language="CPlusPlus" type="CustomSerializationDefine">
+<![CDATA[
+			return __targetBytes.write2ByteArray(this._{@ObjectName});
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="CustomDeserializationDefineCPlusPlus" desc="CPlusPlus中的自定义对象反序列化的定义" language="CPlusPlus" type="CustomDeserializationDefine">
+<![CDATA[
+			return __serializationBytes.readFromByteArray(this._{@ObjectName});
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumPropertyDefineCPlusPlus" desc="CPlusPlus中的枚举型变量属性的定义" language="CPlusPlus" type="EnumPropertyDefine">
+<![CDATA[		// {@EnumItemDesc}
+		{@EnumItemName} = {@EnumID}, ]]>
+		</TemplateDefine>
+		<TemplateDefine Name="EnumCPlusPlus" desc="CPlusPlus中的枚举型定义" language="CPlusPlus" type="Enum">
+<![CDATA[
+namespace CommonData
+{
+	//{@EnumDesc}
+	enum {@EnumName}
+	{
+{@EnumItems}
+	}
+}
+]]>
+		</TemplateDefine>
+	<TemplateDefine Name="ProtoCPlusPlus" desc="CPlusPlus中的协议内容定义" language="CPlusPlus" type="Proto">
+<![CDATA[
+namespace Proto
+{
+	//Communication Data Recive Event Desegate
+	//public delegate void {@ProtoName}_DataReciveEventHandler(ICommunication sender, {@ProtoName}_Data_Event_Args e); 
+	//{@ProtoDesc}
+	class {@ProtoName} : CObjectBase
+	{
+		//Communication Data Recive Event Handler
+		//public static event {@ProtoName}_DataReciveEventHandler communicationDataReciveEvent;
+		
+{@ProtoPropertyItems}
+		public:
+		{@ProtoName}()
+		{
+		}
+    
+		int getProtoDefineID()
+		{
+		return ProtoSerializationDefine::{@ProtoName_ToUpper};
+		}
+
+{@ProtoPropertyItemsGetSet}
+		bool write2ByteArray(CPPByteArray &__targetBytes )
+		{
+{@ToBytes}
+			return false;
+		}
+
+		bool readFromByteArray(CPPByteArray & __serializationBytes)
+		{
+{@FromBytes}
+			return false;
+		}
+		
+		/*public override void fireDataReciveEvent(ICommunication __sender, Session __session)
+    {
+		if(communicationDataReciveEvent != null)
+		{
+			communicationDataReciveEvent(__sender, new {@ProtoName}_Data_Event_Args(__session, this));
+		}
+    }*/
+	}
+	
+	/*public class {@ProtoName}_Data_Event_Args : CommunicationDataEventArgs
+    {
+        public {@ProtoName}_Data_Event_Args(Session __session, {@ProtoName} __data):base(__session, __data)
+        {
+
+        }
+    }*/
+}
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ProtoSerializationIDDefineCPlusPlus" desc="CSharp中的协议ID定义" language="CPlusPlus" type="ProtoSerializationIDDefine">
+<![CDATA[
+		static const int {@ProtoName_ToUpper} = {@ProtoID};
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="AddProtoSerializationIDDefineToMapCPlusPlus" desc="CSharp中的协议ID索引" language="CPlusPlus" type="AddProtoSerializationIDDefineToMap">
+<![CDATA[
+			//this._serializationDefine.Add({@ProtoName_ToUpper}, typeof({@ProtoName}));
+]]>
+		</TemplateDefine>
+		<TemplateDefine Name="ProtoSerializationDefineCPlusPlus" desc="CSharp中的协议内容定义" language="CPlusPlus" type="ProtoSerializationDefine">
+<![CDATA[
+//#include <map>
+//using namespace std;
+namespace Proto
+{
+	// Proto Seriialization Define IDs
+	class ProtoSerializationDefine /*: ICommunicationDataDefine*/
+	{
+		public:
+		//Serialization ID Define in Bimap
+		//map<int, Type> _serializationDefine;
+
+
+{@ProtoSerializationIDDefineCPlusPlus}
+
+		/*ProtoSerializationDefine()
+		{
+			//this._serializationDefine = new map<int, Type>();
+			
+			{@AddProtoSerializationIDDefineToMapCPlusPlus}
+		}*/
+    
+	    /*CommunicationDataBase getCommunicationData(ByteArray __bytes, int __messageID)
+	    {
+	        if(_serializationDefine.find(__messageID) != _serializationDefine.end())
+	        {
+	            Type __type = _serializationDefine[__messageID];
+	            CommunicationDataBase __data = (CommunicationDataBase)Activator.CreateInstance(__type);
+	            __data.fromBytes(__bytes);
+	            return __data;
+	        }
+	        return null;
+	    }*/
+		
+		/*public void Dispose()
+		{
+			this._serializationDefine = null;
+		}*/
+	}
+}
+]]>
+		</TemplateDefine>
+
+<!-- c++ -->
+
+	</Template>
+
+	<EnumDefine>
+			<Enum name="SERVER_TYPE">
+			<EnumMember name="Login" desc="LoginServer" />
+			<EnumMember name="Agent" desc="AgentServer" />
+			<EnumMember name="Console" desc="ConsoleServer" />
+			<EnumMember name="Log" desc="LogServer" />
+			<EnumMember name="Route" desc="RouteServer" />
+			<EnumMember name="Hall" desc="HallServer" />
+			<EnumMember name="Room" desc="RoomServer" />
+			<EnumMember name="Bill" desc="BillServer" />
+			<EnumMember name="Alert" desc="AlertServer" />
+			<EnumMember name="DB" desc="DBServer" />
+			<EnumMember name="DBRoute" desc="DBRouteServer" />
+			<EnumMember name="GM" desc="GMServer" />
+		</Enum>
+    <Enum name="EnumLoginFailReason">
+      <EnumMember name="VERSION_ERROR" desc="版本与服务器不一致" />
+      <EnumMember name="CHANNEL_NOT_EXIST" desc="渠道不存在" />
+      <EnumMember name="ACCOUNT_NOT_ALLOW" desc="账号包含不合法字符" />
+      <EnumMember name="NOT_OPEN" desc="服务器尚未开放" />
+      <EnumMember name="FULL" desc="服务器人数已满" />
+      <EnumMember name="ACCOUNT_NOT_ACTIVE" desc="账号未激活" />
+      <EnumMember name="AUTH_ERROR" desc="验证失败" />
+      <EnumMember name="LOAD_ROLE_FAIL" desc="加载角色失败" />
+    </Enum>
+    <Enum name="EnumCreateRoleFailReason">
+      <EnumMember name="NAME_SAME" desc="名字已被占用" />
+      <EnumMember name="NAME_ILLEGAL_CHAR" desc="名字包含不合法字符" />
+      <EnumMember name="NAME_TOO_LONG" desc="名字太长" />
+      <EnumMember name="NAME_TOO_SHORT" desc="名字太短" />
+      <EnumMember name="BODY_NOT_OPEN" desc="该体型尚未开放" />
+      <EnumMember name="MENPAI_NOT_OPEN" desc="该门派尚未开放" />
+    </Enum>
+    <Enum name="EnumBody">
+      <EnumMember name="MALE_ADULT" desc="成年男" />
+      <EnumMember name="FEMALE_ADULT" desc="成年女" />
+    </Enum>
+    <Enum name="EnumSex">
+      <EnumMember name="NONE" desc="无性别" />
+      <EnumMember name="MALE" desc="男" />
+      <EnumMember name="FEMALE" desc="女" />
+    </Enum>
+    <Enum name="EnumMenPai">
+      <EnumMember name="NONE" desc="无职业" />
+      <EnumMember name="ZHEN_WU" desc="真武" />
+      <EnumMember name="GAI_BANG" desc="丐帮" />
+      <EnumMember name="SHEN_WEI" desc="神威" />
+      <EnumMember name="TAI_BAI" desc="太白" />
+      <EnumMember name="TANG_MEN" desc="唐门" />
+      <EnumMember name="TIAN_XIANG" desc="天香" />
+      <EnumMember name="WU_DU" desc="五毒" />
+      <EnumMember name="SHEN_DAO" desc="神刀" />
+    </Enum>
+
+    <!--
+
+		<Enum name="ENUM_LOGIN_STATE" desc="登陆状态">
+			<EnumMember name="NullAccout" desc="空账户" />
+			<EnumMember name="GuestAccout" desc="临时账户" />
+			<EnumMember name="NormalAccout" desc="正常账户" />
+		</Enum>
+		<Enum name="ENUM_ACCOUT_STATE_CHANGE_ACK" desc="登陆账户类型">
+			<EnumMember name="Success" desc="登陆成功" />
+			<EnumMember name="AccoutNameOrPasswordError" desc="账号名或密码错误" />
+			<EnumMember name="ForbiddenError" desc="账号禁用错误" />
+		</Enum>
+		<Enum name="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="登陆账户类型">
+			<EnumMember name="Error" desc="错误" />
+			<EnumMember name="Used" desc="已被使用" />
+			<EnumMember name="Success" desc="成功" />
+		</Enum>
+    -->
+  </EnumDefine>
+  
+	<CommonDataDefine>
+		<CommonData name="ItemInfo" desc="物品信息数据">
+			<CommonDataMember name="id" type="int" desc="模板id" />
+			<CommonDataMember name="index" type="int" desc="索引位置"/>
+		</CommonData>
+		<CommonData name="PackInfo" desc="背包信息数据">
+			<CommonDataMember name="gridCnt" type="int" desc="背包格子数" />
+			<CommonDataMember name="items" type="VectorCustomObject" elementType="ItemInfo" desc="背包物品列表"/>
+		</CommonData>
+		<CommonData name="RoleProto" desc="角色信息数据">
+			<CommonDataMember name="name" type="String" desc="名字" />
+			<CommonDataMember name="sex" type="EnumSex" desc="性别" />
+			<CommonDataMember name="menpai" type="EnumMenPai" desc="门派" />
+			<CommonDataMember name="avatarFace" type="ByteArray" desc="捏脸数据" />
+      <CommonDataMember name="avatar" type="ByteArray" desc="外观数据，除捏脸以外的" />
+		</CommonData>
+	</CommonDataDefine>
+
+	<ProtoDefine>
+		<!-- CS_，客户端-→服务器 -->
+		<!-- SC_，服务器-→客户端 -->
+		
+		<!-- 登陆相关消息 Begin-->
+		<Proto name="CS_Login" from="Client" dest="Login" desc="Client请求登陆。若在本地验证模式下，不验证密码">
+			<ProtoMember name="serverId" type="U29Int" desc="服务器ID。联服的几个Server共用一个LoginServer，因此登陆时需要选择serverId" />
+			<ProtoMember name="channel" type="String" desc="渠道ID" />
+			<ProtoMember name="account" type="String" desc="账号" />
+			<ProtoMember name="key" type="String" desc="登录秘钥" />
+		</Proto>
+    <Proto name="CS_CreateRole" from="Client" dest="Login" desc="Client请求创建角色，并进入游戏">
+      <ProtoMember name="name" type="String" desc="名字" />
+      <ProtoMember name="body" type="EnumBody" desc="体型" />
+      <ProtoMember name="menpai" type="EnumMenPai" desc="门派" />
+      <ProtoMember name="avatarFace" type="ByteArray" desc="捏脸数据" />
+    </Proto>
+    
+		<Proto name="SC_LoginFail" from="Login" dest="Client" desc="服务器通知，登录失败">
+			<ProtoMember name="channel" type="String" desc="渠道ID" />
+			<ProtoMember name="account" type="String" desc="账号" />
+      <ProtoMember name="failReason" type="EnumLoginFailReason" desc="失败原因" />
+		</Proto>
+    <Proto name="SC_CreateRole" from="Login" dest="Client" desc="服务器通知，你当前没有角色，请创建角色，这是服务器帮你随机到的角色名，基本能够保证不重复">
+      <ProtoMember name="nameMale" type="String" desc="姓名，男" />
+      <ProtoMember name="nameFemale" type="String" desc="姓名，女" />
+    </Proto>
+    <Proto name="SC_RoleList" from="Login" dest="Client" desc="服务器通知，角色列表">
+      <ProtoMember name="roleInfos" type="VectorCustomObject" elementType="RoleProto" desc="角色列表" />
+    </Proto>
+
+    <Proto name="SC_CreateRoleFail" from="Login" dest="Client" desc="服务器通知，角色创建失败">
+      <ProtoMember name="failReason" type="EnumCreateRoleFailReason" desc="失败原因" />
+    </Proto>
+    <!-- 登陆相关消息 End-->
+
+
+    <!--
+		<Proto name="Ping" from="Agent|Alert|Bill|Client|Console|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" dest="Agent|Alert|Bill|Client|Console|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" desc="Ping请求">
+			<ProtoMember name="content" type="Object" desc="Ping内容" />
+		</Proto>
+		<Proto name="Pong" from="Agent|Alert|Bill|Client|Console|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" dest="Agent|Alert|Bill|Client|Console|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" desc="Pong回复">
+			<ProtoMember name="content" type="Object" desc="Pong内容" />
+		</Proto>
+		<Proto name="LoggerREQ" from="Agent|Alert|Bill|Console|DB|FlashSecurityProxy|GM|Hall|Room|Route" dest="Logger" desc="请求远程存储logger">
+			<ProtoMember name="logger" type="Logger" importPathCSharp="ProjectZ.ServerProcessBase" desc="logger内容" />
+		</Proto>
+		<Proto name="ProcessServerStart" from="Agent|Alert|Bill|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" dest="Console" desc="服务进程上线通知">
+			<ProtoMember name="guid" type="String" desc="服务器名称" />
+			<ProtoMember name="serverAddresses" type="VectorObject" desc="服务器IP地址" />
+			<ProtoMember name="processID" type="Int" desc="服务进程ID" />
+		</Proto>
+		<Proto name="ApplyServerConfig" from="Console" dest="Agent|Alert|Bill|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" desc="应用服务器配置">
+			<ProtoMember name="ConsoleServerGUID" type="String" desc="Console服务进程唯一ID" />
+			<ProtoMember name="guid" type="String" desc="服务进程唯一ID" />
+			<ProtoMember name="config" type="ServerProcessConfigBase" importPathCSharp="ProjectZ.ServerProcesses" desc="服务器配置信息" extends="true"/>
+		</Proto>
+		<Proto name="ProcessServerStartCompleted" from="Agent|Alert|Bill|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" dest="Console" desc="应用服务器配置完成">
+			<ProtoMember name="guid" type="String" desc="服务进程唯一ID" />
+		</Proto>
+		<Proto name="ProxyConnection" from="Agent|Alert|Bill|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" dest="Agent|Alert|Bill|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" desc="向其他服务进程连接当前带你服务进程">
+			<ProtoMember name="guid" type="String" desc="当前服务进程ID" />
+		</Proto>
+		<Proto name="CloseALLServerProcessREQ" from="Console" dest="Agent|Alert|Bill|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" desc="向其他服务进程发送退出请求">
+		</Proto>
+		<Proto name="CloseServerProcessREQ" from="Console" dest="Agent|Alert|Bill|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" desc="向其他服务进程发送退出请求">
+		</Proto>
+		<Proto name="CloseServerProcessACK" from="Agent|Alert|Bill|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" dest="Console" desc="向其他服务进程发送退出请求">
+			<ProtoMember name="guid" type="String" desc="当前服务进程ID" />
+		</Proto>
+		<Proto name="CurrLoadOfServerProcess" from="Agent|Alert|Bill|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" dest="Agent|Alert|Bill|DB|FlashSecurityProxy|GM|Hall|Logger|Room|Route" desc="报告当前服务器进程负载">
+			<ProtoMember name="currCountOfConnection" type="Int" desc="当前服务进程负载" />
+		</Proto>
+		<Proto name="AcceptNewConnection" from="Route" dest="Agent" desc="通知Agent服务进程接纳新的传入连接">
+			<ProtoMember name="sessionID" type="String" desc="新的传入连接的会话ID" />
+		</Proto>
+		<Proto name="AcceptNewConnectionReady" from="Agent" dest="Route" desc="Agent服务进程接纳新的传入连接准备完成">
+			<ProtoMember name="sessionID" type="String" desc="新的传入连接的会话ID" />
+		</Proto>
+		<Proto name="SendVerificationCodeREQ" from="Client" dest="Agent" desc="Client请求发送手机验证码">
+			<ProtoMember name="clientSessionID" type="String" desc="请求验证码的客户端会话ID" />
+			<ProtoMember name="cellPhoneNumber" type="String" desc="请求发送手机验证码的手机号码" />
+			<ProtoMember name="verificationCode" type="String" desc="请求发送手机验证码" />
+			<ProtoMember name="verificationCodeType" type="ENUM_SEND_VERIFICATION_CODE_TYPE" desc="发送手机验证码的类型" />
+		</Proto>
+		<Proto name="SendVerificationCodeACK" from="Agent" dest="Client" desc="回复Client请求发送手机验证码">
+			<ProtoMember name="clientSessionID" type="String" desc="请求验证码的客户端会话ID" />
+			<ProtoMember name="success" type="Boolean" desc="是否发送成功" />
+		</Proto>
+		<Proto name="NewAccoutREQ" from="Client" dest="Agent" desc="Client请求注册">
+			<ProtoMember name="clientSessionID" type="String" desc="请求的客户端会话ID" />
+			<ProtoMember name="accoutName" type="String" desc="用户名" />
+			<ProtoMember name="password" type="String" desc="密码" />
+			<ProtoMember name="cellPhoneNumber" type="String" desc="手机号码" />
+			<ProtoMember name="cellPhoneVerification" type="String" desc="手机验证码" />
+		</Proto>
+		<Proto name="NewAccoutACK" from="Agent" dest="Client" desc="回复Client创建角色">
+			<ProtoMember name="uid" type="String" desc="用户ID，若为空则注册失败" />
+			<ProtoMember name="accoutName" type="String" desc="用户名" />
+			<ProtoMember name="password" type="String" desc="密码" />
+			<ProtoMember name="cellPhoneNumber" type="String" desc="手机号码" />
+			<ProtoMember name="dbName" type="String" desc="账号存储的DB服务器名称" />
+			<ProtoMember name="roleInfos" type="VectorCustomObject" elementType="RoleInfo" importPathAS3="game.world.objects.baseobject.info.RoleInfo" importPathCSharp="GameWorldObjectFactory.GameWordObject.BaseObject.Info" importPathCPlusPlus="GameWorldObjectFactory.GameWordObject.BaseObject.Info" desc="角色列表" />
+			<ProtoMember name="clientSessionID" type="String" desc="请求的客户端会话ID" />
+			<ProtoMember name="accoutNameState" type="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="用户名状态" />
+			<ProtoMember name="passwordState" type="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="密码状态" />
+			<ProtoMember name="cellPhoneNumberState" type="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="手机号码状态" />
+			<ProtoMember name="cellPhoneVerificationState" type="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="手机验证码状态" />
+		</Proto>
+		<Proto name="ChangeLoginStateREQ" from="Client" dest="Agent" desc="Client请求变更登陆状态">
+			<ProtoMember name="clientSessionID" type="String" desc="请求的客户端会话ID" />
+			<ProtoMember name="requestState" type="ENUM_LOGIN_STATE" desc="请求变更的状态" />
+			<ProtoMember name="uid" type="String" desc="用户ID" />
+			<ProtoMember name="accoutOrCellPhoneNumber" type="String" desc="用户名或手机号" />
+			<ProtoMember name="password" type="String" desc="请求登陆的密码" />
+			<ProtoMember name="oldAgentID" type="String" desc="旧的AgentID" />
+			<ProtoMember name="newAgentID" type="String" desc="新的AgentID" />
+		</Proto>
+		<Proto name="ChangeLoginStateACK" from="Agent" dest="Client" desc="服务器回复账号">
+			<ProtoMember name="clientSessionID" type="String" desc="请求的客户端会话ID" />
+			<ProtoMember name="state" type="ENUM_LOGIN_STATE" desc="变更的状态" />
+			<ProtoMember name="uid" type="String" desc="用户ID" />
+			<ProtoMember name="accoutName" type="String" desc="用户名" />
+			<ProtoMember name="cellPhoneNumber" type="String" desc="用户手机号" />
+			<ProtoMember name="password" type="String" desc="用户登陆密码" />
+			<ProtoMember name="roleInfos" type="VectorCustomObject" elementType="RoleInfo" importPathAS3="game.world.objects.baseobject.info.RoleInfo" importPathCSharp="GameWorldObjectFactory.GameWordObject.BaseObject.Info" importPathCPlusPlus="GameWorldObjectFactory.GameWordObject.BaseObject.Info" desc="角色列表" />
+			<ProtoMember name="dbName" type="String" desc="账号存储的DB服务器名称" />
+			<ProtoMember name="oldAgentID" type="String" desc="旧的AgentID" />
+			<ProtoMember name="newAgentID" type="String" desc="新的AgentID" />
+		</Proto>
+		<Proto name="ChangeAccoutNameREQ" from="Client" dest="Agent" desc="请求修改用户名">
+			<ProtoMember name="clientSessionID" type="String" desc="请求的客户端会话ID" />
+			<ProtoMember name="uid" type="String" desc="用户ID" />
+			<ProtoMember name="oldAccoutName" type="String" desc="旧的用户名" />
+			<ProtoMember name="newAccoutName" type="String" desc="新的用户名" />
+			<ProtoMember name="cellPhoneVerification" type="String" desc="手机验证码" />
+		</Proto>
+		<Proto name="ChangeAccoutNameACK" from="Client" dest="Agent" desc="回复修改用户名">
+			<ProtoMember name="clientSessionID" type="String" desc="请求的客户端会话ID" />
+			<ProtoMember name="userNameState" type="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="用户名状态" />
+			<ProtoMember name="cellPhoneVerificationState" type="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="手机验证码状态" />
+			<ProtoMember name="accoutName" type="String" desc="新的用户名" />
+		</Proto>
+		<Proto name="ChangeCellPhoneNumberREQ" from="Client" dest="Agent" desc="请求修改用户手机号">
+			<ProtoMember name="clientSessionID" type="String" desc="请求的客户端会话ID" />
+			<ProtoMember name="uid" type="String" desc="用户ID" />
+			<ProtoMember name="oldCellPhoneNumber" type="String" desc="旧的用户名" />
+			<ProtoMember name="newCellPhoneNumber" type="String" desc="新的用户名" />
+			<ProtoMember name="oldCellPhoneVerification" type="String" desc="旧手机验证码" />
+			<ProtoMember name="newCellPhoneVerification" type="String" desc="新手机验证码" />
+		</Proto>
+		<Proto name="ChangeCellPhoneNumberACK" from="Client" dest="Agent" desc="回复修改用户手机号码">
+			<ProtoMember name="clientSessionID" type="String" desc="请求的客户端会话ID" />
+			<ProtoMember name="cellPhoneNumber" type="String" desc="新的用户手机号码" />
+			<ProtoMember name="oldCellPhoneVerificationState" type="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="旧的手机验证码状态" />
+			<ProtoMember name="newCellPhoneVerificationState" type="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="新的手机验证码状态" />
+			<ProtoMember name="newCellPhoneNumberState" type="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="新手机状态" />
+		</Proto>
+		<Proto name="ChangePasswordREQ" from="Client" dest="Agent" desc="请求修改用户密码">
+			<ProtoMember name="clientSessionID" type="String" desc="请求的客户端会话ID" />
+			<ProtoMember name="uid" type="String" desc="用户ID" />
+			<ProtoMember name="cellPhoneVerification" type="String" desc="手机验证码" />
+			<ProtoMember name="newPassword" type="String" desc="新的密码" />
+		</Proto>
+		<Proto name="ChangePasswordACK" from="Client" dest="Agent" desc="回复修改用户密码">
+			<ProtoMember name="clientSessionID" type="String" desc="请求的客户端会话ID" />
+			<ProtoMember name="cellPhoneVerificationState" type="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="手机验证码状态" />
+			<ProtoMember name="passwordState" type="ENUM_NEW_ACCOUT_ITEM_STATE_ACK" desc="密码状态" />
+			<ProtoMember name="password" type="String" desc="新的用户密码" />
+		</Proto>
+		<Proto name="SavePlayerRoleREQ" from="Agent" dest="DB" desc="请求存储玩家角色">
+			<ProtoMember name="uid" type="String" desc="用户ID" />
+			<ProtoMember name="roleInfo" type="RoleInfo" importPathAS3="game.world.objects.baseobject.info.RoleInfo" importPathCSharp="GameWorldObjectFactory.GameWordObject.BaseObject.Info" importPathCPlusPlus="GameWorldObjectFactory.GameWordObject.BaseObject.Info" desc="玩家角色" />
+		</Proto>
+		<Proto name="GetPlayerRoleREQ" from="Agent" dest="DB" desc="请求获得玩家角色">
+			<ProtoMember name="id" type="String" desc="用户ID" />
+		</Proto>
+		<Proto name="GetPlayerRoleACK" from="DB" dest="Agent" desc="请求获得玩家角色">
+			<ProtoMember name="roleInfo" type="RoleInfo" importPathAS3="game.world.objects.baseobject.info.RoleInfo" importPathCSharp="GameWorldObjectFactory.GameWordObject.BaseObject.Info" importPathCPlusPlus="GameWorldObjectFactory.GameWordObject.BaseObject.Info" desc="玩家角色" />
+		</Proto>
+    -->
+
+	</ProtoDefine>
+</root>
